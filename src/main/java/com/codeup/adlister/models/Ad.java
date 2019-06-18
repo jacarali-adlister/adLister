@@ -1,28 +1,46 @@
 package com.codeup.adlister.models;
 
+import java.sql.Date;
 import java.text.SimpleDateFormat;
-import java.util.Date;
+
 
 public class Ad {
     private long id;
     private long userId;
     private String title;
     private String description;
-    private SimpleDateFormat create_date;
+    private Date create_date;
+    private String imageUrl;
 
-    public Ad(long id, long userId, String title, String description, SimpleDateFormat create_date) {
+    public Ad(long id, long userId, String title, String description, Date create_date, String imageUrl) {
         this.id = id;
         this.userId = userId;
         this.title = title;
         this.description = description;
         this.create_date = create_date;
+        this.imageUrl = imageUrl;
     }
 
-    public Ad(long userId, String title, String description, SimpleDateFormat create_date) {
+    public Date getCreate_date() {
+        return create_date;
+    }
+
+    public void setCreate_date(Date create_date) {
+        this.create_date = create_date;
+    }
+
+    public String getImageUrl() {
+        return imageUrl;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        this.imageUrl = imageUrl;
+    }
+
+    public Ad(long userId, String title, String description) {
         this.userId = userId;
         this.title = title;
         this.description = description;
-        this.create_date = create_date;
     }
 
     public long getId() {
