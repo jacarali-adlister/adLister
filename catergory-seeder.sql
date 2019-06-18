@@ -1,5 +1,7 @@
 use adlister_db;
 
+
+
 INSERT INTO categories(title) VALUES
   ('antiques'),
   ('appliances'),
