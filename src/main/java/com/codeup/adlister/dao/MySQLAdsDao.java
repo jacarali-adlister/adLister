@@ -2,6 +2,7 @@ package com.codeup.adlister.dao;
 
 import com.codeup.adlister.models.Ad;
 import com.mysql.cj.jdbc.Driver;
+import java.sql.Date;
 
 import java.io.FileInputStream;
 import java.io.IOException;
@@ -12,6 +13,11 @@ import java.util.List;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
+
+    @Override
+    public long updateAd(long id) {
+        return 0;
+    }
 
     public MySQLAdsDao(Config config) {
         try {
@@ -39,15 +45,14 @@ public class MySQLAdsDao implements Ads {
     }
 
     @Override
-    public Long insert(Ad ad) {
+    public Long insert(Ad ad, String imgURL) {
         try {
-
             String insertQuery = "INSERT INTO ads(user_id, title, description, create_date, imageUrl) VALUES (?, ?, ?, CURDATE(), ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
             stmt.setLong(1, ad.getUserId());
             stmt.setString(2, ad.getTitle());
             stmt.setString(3, ad.getDescription());
-            stmt.setString(4, "https://via.placeholder.com/150");
+            stmt.setString(4, imgURL);
             stmt.executeUpdate();
             ResultSet rs = stmt.getGeneratedKeys();
             rs.next();
@@ -69,18 +74,19 @@ public class MySQLAdsDao implements Ads {
         );
     }
 
+
+
     @Override
     public List<Ad> allFromUser(Long userID) {
         List <Ad> ads = new ArrayList<>();
         try  {
             Statement statement = connection.createStatement();
-            String query = "select id, user_id, title, description from ads where user_id = " + userID;
+            String query = "select id, user_id, title, description, imageUrl from ads where user_id = " + userID;
             ResultSet rs = statement.executeQuery(query);
             while (rs.next()){
                 ads.add(
                         new Ad(rs.getLong("id"),
                                 rs.getLong("user_id"), rs.getString("title"), rs.getString("description"),
-                                rs.getDate("create_date"),
                                 rs.getString("imageUrl")
                         )
 
@@ -90,6 +96,18 @@ public class MySQLAdsDao implements Ads {
             e.printStackTrace();
         }
         return ads;
+    }
+
+    public void delete(long id) {
+        PreparedStatement stmt = null;
+        try {
+            String query = "DELETE FROM ads WHERE id = ?;";
+            stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {

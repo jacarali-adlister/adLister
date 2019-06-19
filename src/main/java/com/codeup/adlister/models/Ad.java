@@ -43,6 +43,21 @@ public class Ad {
         this.description = description;
     }
 
+    public Ad(long id, long userId, String title, String description, String imageUrl) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.imageUrl = imageUrl;
+    }
+
+    public Ad(long userId, String title, String description, String imageUrl) {
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.imageUrl = imageUrl;
+    }
+
     public long getId() {
         return id;
     }
