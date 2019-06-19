@@ -25,10 +25,6 @@
                     <h5 class="card-title">${ad.title}</h5>
                     <p class="card-text">${ad.description}</p>
                     <p class="card-text"><small class="text-muted">***categories will go here***</small></p>
-                    <form action="/profile" method="post">
-                        <input name="id" value="${ad.id}"type="hidden">
-                        <button type="submit">Update this ad</button>
-                    </form>
                 </div>
             </div>
         </div>
