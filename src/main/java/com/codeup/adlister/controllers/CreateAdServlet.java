@@ -36,7 +36,11 @@ public class CreateAdServlet extends HttpServlet {
             request.getParameter("description")
 
         );
-        DaoFactory.getAdsDao().insert(ad);
+        String imgURL = request.getParameter("url");
+        if (request.getParameter("url") == null){
+            imgURL = "https://via.placeholder.com/150";
+        }
+        DaoFactory.getAdsDao().insert(ad, imgURL);
         response.sendRedirect("/ads");
     }
 }
