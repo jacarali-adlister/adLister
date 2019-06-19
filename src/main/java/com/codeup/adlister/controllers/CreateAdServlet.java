@@ -30,11 +30,12 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad(
-                user.getId(), // for now we'll hardcode the user id
+            user.getId(), // for now we'll hardcode the user id
             request.getParameter("title"),
             request.getParameter("description")
 
         );
+
         String imgURL = request.getParameter("url");
         if (request.getParameter("url") == null){
             imgURL = "https://via.placeholder.com/150";

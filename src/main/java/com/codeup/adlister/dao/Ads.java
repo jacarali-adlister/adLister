@@ -14,5 +14,6 @@ public interface Ads {
     void updateAd(Ad ad, long id, String imgUrl);
     List<Ad> one(long id);
     void deleteFromUser(long user_id);
+    Long insert(long ad_id, List<Long> cat_ids);
 
 }
