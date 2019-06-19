@@ -48,7 +48,7 @@ public class MySQLCategoriesDao implements Categories {
         return new Category(
                 rs.getLong("id"),
                 rs.getString("title"),
-                rs.getString("imageUrl")
+                rs.getString("imgUrl")
 
         );
     }
