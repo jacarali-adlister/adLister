@@ -17,7 +17,10 @@ import java.util.Date;
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null){
-        request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
+
+            request.setAttribute("ads", DaoFactory.getCategoriesDao().all());
+
+            request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
         } else {
             response.sendRedirect("/login");
@@ -26,7 +29,6 @@ public class CreateAdServlet extends HttpServlet {
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
-        Date today = new Date();
         Ad ad = new Ad(
                 user.getId(), // for now we'll hardcode the user id
             request.getParameter("title"),
