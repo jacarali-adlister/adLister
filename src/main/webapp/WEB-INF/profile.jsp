@@ -17,9 +17,32 @@
         <h1>Here Are all the ads!</h1>
 
         <c:forEach var="ad" items="${ads}">
-            <div class="col-md-6">
-                <h2>${ad.title}</h2>
-                <p>${ad.description}</p>
+            <%--<div class="col-md-6">--%>
+                <%--<h2>${ad.title}</h2>--%>
+                <%--<p>${ad.description}</p>--%>
+            <%--</div>--%>
+
+            <div class="card mb-3" style="max-width: 540px;">
+                <div class="row no-gutters">
+                    <div class="col-md-4">
+                        <img src="${ad.imageUrl}" class="card-img" alt="...">
+                    </div>
+                    <div class="col-md-8">
+                        <div class="card-body">
+                            <h5 class="card-title">${ad.title}</h5>
+                            <p class="card-text">${ad.description}</p>
+                            <p class="card-text"><small class="text-muted">***categories will go here***</small></p>
+                            <form action="/profile" method="post">
+                                <input name="update" value="${ad.id}"type="hidden">
+                                <button type="submit">Update</button>
+                            </form>
+                            <form action="/profile" method="post">
+                                <input name="id" value="${ad.id}"type="hidden">
+                                <button type="submit">Delete this ad</button>
+                            </form>
+                        </div>
+                    </div>
+                </div>
             </div>
         </c:forEach>
     </div>
