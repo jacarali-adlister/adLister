@@ -10,15 +10,19 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
+import java.util.List;
 
 
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
+
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         if (request.getSession().getAttribute("user") != null){
 
-            request.setAttribute("ads", DaoFactory.getCategoriesDao().all());
+            request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
 
             request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
@@ -30,19 +34,48 @@ public class CreateAdServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
         User user = (User) request.getSession().getAttribute("user");
         Ad ad = new Ad(
-            user.getId(), // for now we'll hardcode the user id
-            request.getParameter("title"),
-            request.getParameter("description")
+                user.getId(), // for now we'll hardcode the user id
+                request.getParameter("title"),
+                request.getParameter("description")
 
         );
 
-        String imgURL = request.getParameter("url");
-        if (request.getParameter("url") == null){
-            imgURL = "https://via.placeholder.com/150";
-            DaoFactory.getAdsDao().insert(ad, imgURL);
+        String[] cat_id = request.getParameterValues("categories");
+
+        if (cat_id != null) {
+            List<String> cat_ids = new ArrayList<String>(Arrays.asList(cat_id));
+
+            String imgURL = request.getParameter("url");
+            if (request.getParameter("url") == null) {
+                imgURL = "https://via.placeholder.com/150";
+
+                long id = DaoFactory.getAdsDao().insert(ad, imgURL);
+                DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
+            } else {
+
+                long id = DaoFactory.getAdsDao().insert(ad, imgURL);
+                response.sendRedirect("/ads");
+                DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
+            }
+
         } else {
-            DaoFactory.getAdsDao().insert(ad, imgURL);
-            response.sendRedirect("/ads");
+            String[] temp = {"19"};
+            List<String> cat_ids = new ArrayList<String>(Arrays.asList(temp));
+
+            String imgURL = request.getParameter("url");
+            if (request.getParameter("url") == null) {
+                imgURL = "https://via.placeholder.com/150";
+
+                long id = DaoFactory.getAdsDao().insert(ad, imgURL);
+                DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
+            } else {
+
+                long id = DaoFactory.getAdsDao().insert(ad, imgURL);
+                response.sendRedirect("/ads");
+                DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
+            }
+
         }
+
     }
 }
