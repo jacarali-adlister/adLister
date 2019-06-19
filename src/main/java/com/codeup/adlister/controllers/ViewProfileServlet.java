@@ -29,8 +29,9 @@ public class ViewProfileServlet extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
         long id = Long.parseLong(request.getParameter("id"));
-        DaoFactory.getAdsDao().delete(id);
-        response.sendRedirect("/profile");
+        request.getSession().setAttribute("update-id", id);
+//        DaoFactory.getAdsDao().delete(id);
+        response.sendRedirect("/update-ad");
 
     }
 }

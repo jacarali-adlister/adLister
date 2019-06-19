@@ -16,8 +16,6 @@ import java.util.Date;
 @WebServlet(name = "controllers.CreateAdServlet", urlPatterns = "/ads/create")
 public class CreateAdServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-
-
         if (request.getSession().getAttribute("user") != null){
         request.getRequestDispatcher("/WEB-INF/ads/create.jsp")
             .forward(request, response);
@@ -27,7 +25,6 @@ public class CreateAdServlet extends HttpServlet {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
         User user = (User) request.getSession().getAttribute("user");
         Date today = new Date();
         Ad ad = new Ad(
@@ -39,8 +36,10 @@ public class CreateAdServlet extends HttpServlet {
         String imgURL = request.getParameter("url");
         if (request.getParameter("url") == null){
             imgURL = "https://via.placeholder.com/150";
+            DaoFactory.getAdsDao().insert(ad, imgURL);
+        } else {
+            DaoFactory.getAdsDao().insert(ad, imgURL);
+            response.sendRedirect("/ads");
         }
-        DaoFactory.getAdsDao().insert(ad, imgURL);
-        response.sendRedirect("/ads");
     }
 }

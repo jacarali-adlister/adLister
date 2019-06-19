@@ -15,8 +15,19 @@ public class MySQLAdsDao implements Ads {
     private Connection connection = null;
 
     @Override
-    public long updateAd(long id) {
-        return 0;
+    public void updateAd(Ad ad, long id, String imgUrl) {
+        try {
+        String query = "UPDATE adlister_db.ads SET title=?, description = ?, imageUrl = ? where id=" + id;
+        PreparedStatement stmt = connection.prepareStatement(query);
+        stmt.setString(1, ad.getTitle());
+        stmt.setString(2, ad.getDescription());
+        stmt.setString(3, imgUrl);
+        stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
     public MySQLAdsDao(Config config) {
@@ -37,6 +48,18 @@ public class MySQLAdsDao implements Ads {
         PreparedStatement stmt = null;
         try {
             stmt = connection.prepareStatement("SELECT * FROM ads");
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving all ads.", e);
+        }
+    }
+
+    @Override
+    public List<Ad> one(long id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads where id=" + id);
             ResultSet rs = stmt.executeQuery();
             return createAdsFromResults(rs);
         } catch (SQLException e) {
