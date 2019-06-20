@@ -55,7 +55,6 @@
             </div>
         </div>
     </section>
-    <jsp:include page="/WEB-INF/partials/bootstrapScript.jsp"/>
 </div>
 </body>
 </html>
