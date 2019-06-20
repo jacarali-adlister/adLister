@@ -7,6 +7,7 @@
     </jsp:include>
 </head>
 <body>
+<jsp:include page="/WEB-INF/partials/navbar.jsp"/>
     <div class="container">
         <h1>Create a new Ad</h1>
         <form action="/ads/create" method="post">
@@ -22,13 +23,25 @@
                 <label for="url">Image</label>
                 <input id="url" name="url" class="form-control" type="text">
             </div>
-            <div class="form-group form-check">
-                <p>select category (check all that apply)</p>
-                <c:forEach var="category" items="${categories}">
-                ${category.title}
-                    <input id="${category.title}"name="categories" type="checkbox" class="form-check-input" value="${category.id}">
-                </c:forEach>
-
+            <div class="row">
+                <div class="col">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary dropdown-toggle my-2" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Choose Categories
+                        </button>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <c:forEach var="category" items="${categories}">
+                                <div class="form-check form-check-inline form-group">
+                                    <input class="form-check-input" type="checkbox" value="${category.id}" id="${category.title}" name="categories">
+                                    <label class="form-check-label" for="${category.title}">
+                                            ${category.title}
+                                    </label>
+                                </div>
+                            </c:forEach>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <input type="submit" class="btn btn-block btn-primary">
         </form>
     </div>
