@@ -12,7 +12,8 @@ import java.io.IOException;
 @WebServlet(name = "controllers.CategoriesServlet", urlPatterns = "/categories")
 public class CategoriesServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        request.setAttribute("category", DaoFactory.getAdsDao().all());
-        request.getRequestDispatcher("/WEB-INF/ads/index.jsp").forward(request, response);
+        request.setAttribute("Categories", DaoFactory.getCategoriesDao().all());
+        request.getRequestDispatcher("/index.jsp").forward(request, response);
+
     }
 }

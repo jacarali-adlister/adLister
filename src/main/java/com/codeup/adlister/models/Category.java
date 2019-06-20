@@ -16,6 +16,10 @@ public class Category {
         this.imgUrl = imgUrl;
     }
 
+    public Category(){
+
+    }
+
     public long getId() {
         return id;
     }

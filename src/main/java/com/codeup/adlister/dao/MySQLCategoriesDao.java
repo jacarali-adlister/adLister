@@ -9,7 +9,12 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLCategoriesDao implements Categories {
-    private Connection connection = null;
+
+    public static void main(String[] args) {
+        System.out.println(DaoFactory.getAdsDao().all());
+    }
+
+    private Connection connection;
 
     public MySQLCategoriesDao(Config config) {
         try {
@@ -26,12 +31,22 @@ public class MySQLCategoriesDao implements Categories {
 
     @Override
     public List<Category> all() {
-        PreparedStatement stmt = null;
+
+        List<Category> catList = new ArrayList<>();
         try {
-            stmt = connection.prepareStatement("SELECT * FROM categories");
-            ResultSet rs = stmt.executeQuery();
-            return createCategoriesFromResults(rs);
+            System.out.println("try started");
+            Statement stmt = connection.createStatement();
+            ResultSet rs = stmt.executeQuery("SELECT * FROM categories");
+            while(rs.next()){
+                Category cat = new Category();
+                cat.setId(rs.getLong("id"));
+                cat.setTitle(rs.getString("title"));
+                cat.setImgUrl(rs.getString("imgUrl"));
+                catList.add(cat);
+            }
+            return catList;
         } catch (SQLException e) {
+            System.out.println("exception thrown");
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
@@ -45,11 +60,11 @@ public class MySQLCategoriesDao implements Categories {
     }
 
     private Category extractCategory(ResultSet rs) throws SQLException {
-        return new Category(
-                rs.getLong("id"),
-                rs.getString("title"),
-                rs.getString("imgUrl")
+            return new Category(
+                    rs.getLong("id"),
+                    rs.getString("title"),
+                    rs.getString("imgUrl")
 
-        );
+            );
+        }
     }
-}
