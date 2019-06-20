@@ -17,14 +17,15 @@
         <div class="card-container">
             <c:forEach var="category" items="${categories}">
                 <div class="card">
-                    <img src="${sessionScope.Categories.imgUrl}"/>
+                    <img src="${category.imgUrl}"/>
                     <div class="content">
-                        <h3>${sessionScope.Categories.title}</h3>
+                        <h3>${category.title}</h3>
                     </div>
                 </div>
             </c:forEach>
         </div>
     </section>
+    <jsp:include page="/WEB-INF/partials/bootstrapScript.jsp"/>
 </div>
 </body>
 </html>
