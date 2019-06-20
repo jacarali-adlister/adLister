@@ -16,4 +16,5 @@ public interface Ads {
     void deleteFromUser(long user_id);
     Long insertCat_Ads(long ad_id, List<String> cat_ids);
 
+    List<Ad> containsAd(String searchQuery);
 }

@@ -108,6 +108,11 @@ public class MySQLAdsDao implements Ads {
         return 0L;
     }
 
+    @Override
+    public List<Ad> containsAd(String searchQuery) {
+        return null;
+    }
+
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),

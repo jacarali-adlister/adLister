@@ -53,5 +53,10 @@
             </div>
             </div>
     </section>
+<<<<<<< HEAD
+    <jsp:include page="/WEB-INF/partials/bootstrapScript.jsp"/>
+</div>
+=======
+>>>>>>> b8015d34cad5e8c2e466e543c43a673bb5f2a28c
 </body>
 </html>
