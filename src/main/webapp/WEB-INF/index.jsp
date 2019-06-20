@@ -34,6 +34,7 @@
 
     <h1 style="text-align: center">Categories</h1>
     <section>
+        <div class="container">
         <div class="container-fluid">
             <div class="row h-100">
                 <c:forEach var="category" items="${categories}">
@@ -52,11 +53,9 @@
             </c:forEach>
             </div>
             </div>
+        </div>
     </section>
-<<<<<<< HEAD
     <jsp:include page="/WEB-INF/partials/bootstrapScript.jsp"/>
 </div>
-=======
->>>>>>> b8015d34cad5e8c2e466e543c43a673bb5f2a28c
 </body>
 </html>
