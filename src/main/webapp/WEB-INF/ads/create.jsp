@@ -25,7 +25,8 @@
             <div class="form-group form-check">
                 <p>select category (check all that apply)</p>
                 <c:forEach var="category" items="${categories}">
-                    ${category.title}<input name="categories" type="checkbox" class="form-check-input" value="${category.id}">
+                ${category.title}
+                    <input id="${category.title}"name="categories" type="checkbox" class="form-check-input" value="${category.id}">
                 </c:forEach>
 
             <input type="submit" class="btn btn-block btn-primary">
