@@ -115,8 +115,8 @@ public class MySQLAdsDao implements Ads {
             rs.getString("title"),
             rs.getString("description"),
             rs.getDate("create_date"),
-            rs.getString("imageUrl")
-
+            rs.getString("imageUrl"),
+            cat_ads(rs.getLong("id"))
         );
     }
 
@@ -163,6 +163,7 @@ public class MySQLAdsDao implements Ads {
         }
         return ads;
     }
+
     public void deleteFromUser(long user_id) {
         PreparedStatement stmt = null;
         try {
@@ -175,4 +176,24 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
+
+    private String[] cat_ads(Long ad_id){
+        PreparedStatement stmt = null;
+        try {
+        String categories = "";
+        String query ="SELECT title from categories join ads_category on categories.id = ads_category.category_id where ads_category.ad_id = " + ad_id;
+            stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while (rs.next()){
+                categories += rs.getString("title") + " ";
+            }
+            String[] catsArr = categories.split(" ");
+            return catsArr;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+         String[] arr = {"general"};
+        return arr;
+    }
+
 }

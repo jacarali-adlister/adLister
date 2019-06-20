@@ -2,6 +2,7 @@ package com.codeup.adlister.models;
 
 import java.sql.Date;
 import java.text.SimpleDateFormat;
+import java.util.List;
 
 
 public class Ad {
@@ -11,6 +12,7 @@ public class Ad {
     private String description;
     private Date create_date;
     private String imageUrl;
+    private String[] categories;
 
     public Ad(long id, long userId, String title, String description, Date create_date, String imageUrl) {
         this.id = id;
@@ -19,6 +21,24 @@ public class Ad {
         this.description = description;
         this.create_date = create_date;
         this.imageUrl = imageUrl;
+    }
+
+    public Ad(long id, long userId, String title, String description, Date create_date, String imageUrl, String[] categories) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.create_date = create_date;
+        this.imageUrl = imageUrl;
+        this.categories = categories;
+    }
+
+    public String[] getCategories() {
+        return categories;
+    }
+
+    public void setCategories(String[] categories) {
+        this.categories = categories;
     }
 
     public Date getCreate_date() {

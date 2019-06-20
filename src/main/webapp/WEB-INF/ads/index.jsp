@@ -22,7 +22,11 @@
                 <div class="card-body">
                     <h5 class="card-title">${ad.title}</h5>
                     <p class="card-text">${ad.description}</p>
-                    <p class="card-text"><small class="text-muted">***categories will go here***</small></p>
+                    <p class="card-text">
+                        <c:forEach var="category" items="${ad.categories}"><a href="#">
+                        <small class="text-muted">${category} </small></a>
+                        </c:forEach>
+                    </p>
                 </div>
             </div>
         </div>
@@ -30,7 +34,6 @@
 
     </c:forEach>
 </div>
-
 
 </body>
 </html>
