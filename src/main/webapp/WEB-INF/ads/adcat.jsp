@@ -14,14 +14,13 @@
     <style>
         img{
             height: 160px;
-            border:3px solid black;
+            border:1px solid black;
             border-radius: 2px;
         }
 
         .ad-date{
             text-indent: 5%;
         }
-
     </style>
 
 

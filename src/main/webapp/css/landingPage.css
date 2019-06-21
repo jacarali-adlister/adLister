@@ -1,0 +1,38 @@
+body{
+    background-color: gray;
+}
+
+img{
+    height: 200px;
+    border:1px solid darkgray;
+    border-radius: 50%;
+    opacity: 1.5;
+
+}
+img:hover{
+    box-shadow: 0 0 8px 3px black;
+    transform: scale(1.025);
+    opacity: 1;
+    filter: grayscale(0);
+    transition: .35s all ease;
+}
+img:not(:hover){
+    opacity: .8;
+}
+.card-title {
+    font: 1.8rem 'Bree Serif', serif;
+    padding: 0;
+    margin: 0 0 10px;
+    letter-spacing: -.075rem;
+    text-align: center;
+}
+
+button{
+    border: none;
+    border-radius: 50%;
+    background-color: gray;
+}
+
+.container-fluid{
+    padding: 3% 5% 5% 5%;
+}
