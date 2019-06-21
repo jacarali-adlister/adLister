@@ -9,4 +9,5 @@ public interface Users {
     Long insert(User user);
     void updateprofile(User user, Long id);
     List<User> allUsers();
+    void deleteUser(Long id);
 }

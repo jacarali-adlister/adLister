@@ -6,6 +6,7 @@ import com.mysql.cj.jdbc.Driver;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
+import java.util.ArrayList;
 import java.util.List;
 
 public class MySQLUsersDao implements Users {
@@ -54,8 +55,26 @@ public class MySQLUsersDao implements Users {
     }
 
     public List<User> allUsers(){
-
-
+        PreparedStatement stmt = null;
+        String query = "Select * from users";
+        List<User> users = new ArrayList<>();
+        try {
+            stmt = connection.prepareStatement(query);
+            ResultSet rs = stmt.executeQuery();
+            while(rs.next()){
+                users.add(
+                        new User(
+                                rs.getLong("id"),
+                                rs.getString("username"),
+                                rs.getString("email"),
+                                rs.getString("password")
+                        )
+                );
+            }
+            return users;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
         return null;
     }
 
@@ -70,6 +89,18 @@ public class MySQLUsersDao implements Users {
             rs.getString("email"),
             rs.getString("password")
         );
+    }
+
+    public void deleteUser(Long id){
+        PreparedStatement stmt = null;
+        try {
+            String query = "DELETE from adlister_db.users where id = ?;";
+            stmt = connection.prepareStatement(query);
+            stmt.setLong(1, id);
+            stmt.executeUpdate();
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
     }
 
     public void updateprofile(User user, Long id){
