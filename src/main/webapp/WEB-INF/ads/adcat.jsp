@@ -11,15 +11,28 @@
 <head>
 <jsp:include page="/WEB-INF/partials/head.jsp"/>
     <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
+    <style>
+        img{
+            height: 160px;
+            border:3px solid black;
+            border-radius: 2px;
+        }
+
+        .ad-date{
+            text-indent: 5%;
+        }
+
+    </style>
+
 
 
     <title>Title</title>
 </head>
 <body>
 <div class="container">
+    <h1 style="text-align: center">Here are all the ads for ${category}!</h1>
 
     <c:forEach var="ad" items="${ads}">
-        <h1>Here are all the ads for ${category}!</h1>
         <div class="card mb-3" style="max-width: 540px;">
             <div class="row no-gutters">
                 <div class="col-md-4">
@@ -35,10 +48,10 @@
                             </c:forEach>
                         </p>
                     </div>
+                    <p class="card-text ad-date"><small class="text-muted">Posted on: ${ad.create_date}</small></p>
                 </div>
             </div>
         </div>
-
     </c:forEach>
 </div>
 
