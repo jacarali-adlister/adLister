@@ -8,4 +8,5 @@ public interface Users {
     User findByUsername(String username);
     Long insert(User user);
     void updateprofile(User user, Long id);
+    List<User> allUsers();
 }

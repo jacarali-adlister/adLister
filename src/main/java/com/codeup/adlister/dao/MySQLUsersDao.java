@@ -6,6 +6,7 @@ import com.mysql.cj.jdbc.Driver;
 import org.mindrot.jbcrypt.BCrypt;
 
 import java.sql.*;
+import java.util.List;
 
 public class MySQLUsersDao implements Users {
     private Connection connection;
@@ -50,6 +51,12 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e) {
             throw new RuntimeException("Error creating new user", e);
         }
+    }
+
+    public List<User> allUsers(){
+
+
+        return null;
     }
 
 
