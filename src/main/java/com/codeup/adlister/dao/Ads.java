@@ -17,4 +17,5 @@ public interface Ads {
     Long insertCat_Ads(long ad_id, List<String> cat_ids);
 
     List<Ad> containsAd(String searchQuery);
+    List<Ad> adsCats(String title);
 }
