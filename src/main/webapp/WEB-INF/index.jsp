@@ -33,7 +33,7 @@
         }
 
         .container-fluid{
-            padding: 5%;
+            padding: 3% 5% 5% 5%;
         }
 
 
