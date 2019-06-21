@@ -33,6 +33,17 @@ public class Ad {
         this.categories = categories;
     }
 
+    public Ad(long id, long userId, String title, String description, String imageUrl, String[] categories) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.categories = categories;
+    }
+
+
+
     public String[] getCategories() {
         return categories;
     }

@@ -42,40 +42,23 @@ public class CreateAdServlet extends HttpServlet {
 
         String[] cat_id = request.getParameterValues("categories");
 
-        if (cat_id != null) {
-            List<String> cat_ids = new ArrayList<String>(Arrays.asList(cat_id));
-
-            String imgURL = request.getParameter("url");
-            if (request.getParameter("url") == null) {
-                imgURL = "https://via.placeholder.com/150";
-
-                long id = DaoFactory.getAdsDao().insert(ad, imgURL);
-                DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
-            } else {
-
-                long id = DaoFactory.getAdsDao().insert(ad, imgURL);
-                response.sendRedirect("/ads");
-                DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
-            }
-
-        } else {
+            List<String> cat_ids = catified(cat_id);
             String[] temp = {"19"};
-            List<String> cat_ids = new ArrayList<String>(Arrays.asList(temp));
 
             String imgURL = request.getParameter("url");
-            if (request.getParameter("url") == null) {
-                imgURL = "https://via.placeholder.com/150";
-
-                long id = DaoFactory.getAdsDao().insert(ad, imgURL);
-                DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
-            } else {
 
                 long id = DaoFactory.getAdsDao().insert(ad, imgURL);
                 response.sendRedirect("/ads");
                 DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
-            }
-
+    }
+    private static List<String> catified(String[] arr){
+        if (arr != null) {
+            List<String> idsarr = Arrays.asList(arr);
+            return idsarr;
+        } else {
+            List<String> idarr= new ArrayList<>();
+            idarr.add("19");
+            return idarr;
         }
-
     }
 }
