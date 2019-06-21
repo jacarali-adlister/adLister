@@ -13,7 +13,7 @@ import java.util.List;
 
 public class MySQLAdsDao implements Ads {
     private Connection connection = null;
-
+    private String url = "https://via.placeholder.com/150";
     @Override
     public void updateAd(Ad ad, long id, String imgUrl) {
         try {
@@ -69,6 +69,9 @@ public class MySQLAdsDao implements Ads {
 
     @Override
     public Long insert(Ad ad, String imgURL) {
+        if(imgURL == null || imgURL == ""){
+            imgURL = url;
+        }
         try {
             String insertQuery = "INSERT INTO ads(user_id, title, description, create_date, imageUrl) VALUES (?, ?, ?, CURDATE(), ?)";
             PreparedStatement stmt = connection.prepareStatement(insertQuery, Statement.RETURN_GENERATED_KEYS);
@@ -138,7 +141,8 @@ public class MySQLAdsDao implements Ads {
                 ads.add(
                         new Ad(rs.getLong("id"),
                                 rs.getLong("user_id"), rs.getString("title"), rs.getString("description"),
-                                rs.getString("imageUrl")
+                                rs.getString("imageUrl"),
+                                cat_ads(rs.getLong("id"))
                         )
 
                 );
@@ -190,9 +194,9 @@ public class MySQLAdsDao implements Ads {
             stmt = connection.prepareStatement(query);
             ResultSet rs = stmt.executeQuery();
             while (rs.next()){
-                categories += rs.getString("title") + " ";
+                categories += rs.getString("title") + ",";
             }
-            String[] catsArr = categories.split(" ");
+            String[] catsArr = categories.split(",");
             return catsArr;
         } catch (SQLException e) {
             e.printStackTrace();
