@@ -27,21 +27,34 @@
             letter-spacing: -.075rem;
             text-align: center;
         }
+
+        button{
+            border: none;
+        }
+
+        .container-fluid{
+            padding: 5%;
+        }
+
+
     </style>
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp"/>
-
+<br>
     <h1 style="text-align: center">Categories</h1>
     <section>
-        <div class="container">
+        <%--<div class="container">--%>
         <div class="container-fluid">
             <div class="row h-100">
                 <c:forEach var="category" items="${categories}">
                     <div class='col-2 category'>
                         <div class="row">
                             <div class="col-12">
-                                <img class="card-img" src="${category.imgUrl}" alt="...">
+                                <form action="/categories" method="post">
+                                <input type="hidden" value="${category.title}" name="category">
+                                <button><img class="card-img" src="${category.imgUrl}" alt="..."></button>
+                                </form>
                             </div>
                         </div>
                         <div class="row">
@@ -53,7 +66,7 @@
             </c:forEach>
             </div>
             </div>
-        </div>
+        <%--</div>--%>
     </section>
 </div>
 </body>
