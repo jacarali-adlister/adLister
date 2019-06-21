@@ -33,8 +33,12 @@ public class LoginServlet extends HttpServlet {
         }
 
 
+
         boolean validAttempt = Password.check(password, user.getPassword());
 //                password.equals(user.getPassword());
+        if (validAttempt && user.getUsername().contains("admin")){
+            response.sendRedirect("/admin");
+        }
 
         if (validAttempt) {
             request.getSession().setAttribute("user", user);
