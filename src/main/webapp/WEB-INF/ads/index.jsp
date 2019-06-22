@@ -8,9 +8,20 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
+<style>
+    img{
+        height: 160px;
+        border:1px solid black;
+        border-radius: 2px;
+    }
+
+    .ad-date{
+        text-indent: 5%;
+    }
+</style>
 
 <div class="container">
-    <h1>Here Are all the ads!</h1>
+    <h1 style="text-align: center">Here are all the ads!</h1>
 
     <c:forEach var="ad" items="${ads}">
     <div class="card mb-3" style="max-width: 540px;">
@@ -28,6 +39,7 @@
                         </c:forEach>
                     </p>
                 </div>
+                <p class="card-text ad-date"><small class="text-muted">Posted on: ${ad.create_date}</small></p>
             </div>
         </div>
     </div>
