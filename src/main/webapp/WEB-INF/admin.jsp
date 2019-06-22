@@ -9,7 +9,7 @@
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 
-        <table class="table table-striped">
+        <table class="table table-dark table-striped">
             <thead class="thead-dark">
                 <th>User Id</th>
                 <th>Username</th>
