@@ -24,8 +24,8 @@
 
                     <td>
                         <form action="/admin" method="post">
-                            <input name="id" value="${user.id}" type="hidden">
-                            <input type="submit" class="btn btn-block btn-primary">
+                            <button name="id" value="${user.id}">Ban</button>
+                            <button name="make-admin" value="${user.id}"></button>
                         </form>
                     </td>
                 </tr>
