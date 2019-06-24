@@ -21,6 +21,16 @@
         .ad-date{
             text-indent: 5%;
         }
+
+        button{
+            border: none;
+            border-radius: 50%;
+            display: inline-block;
+        }
+        button:focus{
+            outline: 0;
+        }
+
     </style>
 
 
@@ -42,10 +52,11 @@
                         <h5 class="card-title">${ad.title}</h5>
                         <p class="card-text">${ad.description}</p>
                         <p class="card-text">
-                            <c:forEach var="category" items="${ad.categories}">
-                        <form action="/ads" method="post"><input type="hidden" name="category" value="${category}">
-                            <button><small class="text-muted">${category}</small></button></form>
+                        <c:forEach var="category" items="${ad.categories}">
+                            <form action="/ads" method="post"><input type="hidden" name="category" value="${category}">
+                                <button><small class="text-muted">${category}</small></button></form>
                         </c:forEach>
+
                         </p>
                     </div>
                     <p class="card-text ad-date"><small class="text-muted">Posted on: ${ad.create_date}</small></p>

@@ -10,8 +10,8 @@ INSERT INTO categories(title, imgUrl) VALUES
   ('Baby & Kid', 'https://cdn.shopify.com/s/files/1/1407/3324/articles/bigstock--142459766_1_1000x600_crop_center.jpg?v=1549496295'),
   ('Barter', 'https://cdn-images-1.medium.com/max/1600/1*kr-RhSv4SNYjRODjjF3UVw.jpeg'),
   ('Beauty & Health', 'https://www.india.com/wp-content/uploads/2016/05/indianproducts.jpg'),
-  ('Bikes and Bike parts', 'http://portolaplanet.com/wp-content/uploads/2018/05/bike-parts-2.jpg'),
-  ('Boats and Boat parts', 'https://cdn.boats.net/MTA/ufs/2/MTM0Njcz-20ed3227.png'),
+  ('Bikes', 'http://portolaplanet.com/wp-content/uploads/2018/05/bike-parts-2.jpg'),
+  ('Boats', 'https://cdn.boats.net/MTA/ufs/2/MTM0Njcz-20ed3227.png'),
   ('Books', 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2018/07/02/10/old-book.jpg'),
   ('Business', 'https://blog-assets.hootsuite.com/wp-content/uploads/2016/08/social-media-for-business-940x470.jpg'),
   ('Clothes & acc', 'https://static.independent.co.uk/s3fs-public/thumbnails/image/2019/04/10/16/online-clothes-shops-hero.jpg'),
@@ -33,6 +33,6 @@ INSERT INTO categories(title, imgUrl) VALUES
   ('Tools', 'https://d3vl3jxeh4ou3u.cloudfront.net/10%20best%20brands%20for%20automotive%20tool%20sets.jpg'),
   ('Toys and games', 'https://woub.org/wp-content/uploads/2017/02/board-games.jpg'),
   ('Trailers', 'https://media.tractorsupply.com/is/image/TractorSupplyCompany/1090202?$470$'),
-  ('Vehicles and vehicle parts', 'https://blogmedia.dealerfire.com/wp-content/uploads/sites/1119/2018/10/metro_-20171016_autonomous-vehicles.jpg'),
+  ('Vehicles', 'https://blogmedia.dealerfire.com/wp-content/uploads/sites/1119/2018/10/metro_-20171016_autonomous-vehicles.jpg'),
   ('Wanted', 'https://acart.com/wp-content/uploads/2017/03/help-wanted-sign1-2.jpg'),
   ('Wheels & tires', 'https://www.tirerack.com/content/dam/tirerack/desktop/homepage/BFG.Mud_Terrain_TA_KM2_87QR8KM2RWL_MethodRacing.Fat_Five_Black_1.png');
