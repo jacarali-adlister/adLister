@@ -14,7 +14,7 @@
                 <th>User Id</th>
                 <th>Username</th>
                 <th>Email</th>
-                <th>Ban User</th>
+                <th>Change User Status</th>
             </thead>
             <c:forEach var="user" items="${users}">
                 <tr>
@@ -25,7 +25,7 @@
                     <td>
                         <form action="/admin" method="post">
                             <button name="id" value="${user.id}">Ban</button>
-                            <button name="make-admin" value="${user.id}"></button>
+                            <button name="make-admin" value="${user.id}">make admin</button>
                         </form>
                     </td>
                 </tr>
