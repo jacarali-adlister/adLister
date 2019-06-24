@@ -21,12 +21,15 @@ public class UpdateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-
+        if(request.getParameter("id") != null){
+        long cryD = Long.parseLong(request.getParameter("id"));
+            request.setAttribute("ads", DaoFactory.getAdsDao().one(cryD));
+        } else {
         long id = (long)request.getSession().getAttribute("update-id");
 
-        User user = (User) request.getSession().getAttribute("user");
-
         request.setAttribute("ads", DaoFactory.getAdsDao().one(id));
+        }
+        User user = (User) request.getSession().getAttribute("user");
 
         request.getRequestDispatcher("/WEB-INF/ads/update-ad.jsp").forward(request, response);
     }
