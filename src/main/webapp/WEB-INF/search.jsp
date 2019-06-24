@@ -14,12 +14,12 @@
             <c:forEach var="userAd" items="${userAds}">
                 <div class="col-12 col-md-3 my-2">
                     <div class="card" style="width: 18rem;">
-                        <img src="${userAd.ad.imageURL}" class="card-img-top" alt="..." style="height: 12rem">
+                        <img src="${userAd.imageUrl}" class="card-img-top" alt="..." style="height: 12rem">
                         <div class="card-body">
-                            <h5 class="card-title"><a>${userAd.ad.title}</a></h5>
-                            <p class="card-text">${userAd.ad.description}</p>
-                            <a href="/thisAd?id=${userAd.ad.id}" class="btn btn-primary">View Ad</a>
-                            <p>posted by: ${userAd.user.username}</p>
+                            <h5 class="card-title"><a>${userAd.title}</a></h5>
+                            <p class="card-text">${userAd.description}</p>
+                            <a href="/thisAd?id=${userAd.id}" class="btn btn-primary">View Ad</a>
+                            <%--<p>posted by: ${userAd.username}</p>--%>
                         </div>
                     </div>
                 </div>

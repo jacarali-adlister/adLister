@@ -111,9 +111,19 @@ public class MySQLAdsDao implements Ads {
         return 0L;
     }
 
-    @Override
     public List<Ad> containsAd(String searchQuery) {
-        return null;
+        try {
+            String selectQuery = "SELECT * FROM ads JOIN users ON users.id = ads.user_id WHERE ads.title LIKE ? OR ads.description LIKE ? OR users.username LIKE ?";
+            PreparedStatement stmt = connection.prepareStatement(selectQuery);
+            stmt.setString(1,"%" + searchQuery + "%");
+            stmt.setString(2,"%" + searchQuery + "%");
+            stmt.setString(3,"%" + searchQuery + "%");
+            ResultSet rs = stmt.executeQuery();
+            return createAdsFromResults(rs);
+        } catch (SQLException e) {
+            throw new RuntimeException("It didn't work", e);
+        }
+
     }
 
     private Ad extractAd(ResultSet rs) throws SQLException {
@@ -234,7 +244,5 @@ public class MySQLAdsDao implements Ads {
             throw new RuntimeException("Error retrieving all ads.", e);
         }
     }
-
-
 
 }

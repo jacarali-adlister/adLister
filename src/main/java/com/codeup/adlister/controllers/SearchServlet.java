@@ -17,16 +17,15 @@ public class SearchServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
         String searchQuery = request.getParameter("search");
         List<Ad> foundAds = DaoFactory.getAdsDao().containsAd(searchQuery);
-        List<UserAd> userAds = new ArrayList<>();
-
-        for(Ad ad : foundAds){
-            UserAd userAd = new UserAd();
-            User user = DaoFactory.getUsersDao().findByUsername(String.valueOf(ad.getUserId()));
-            userAd.setAd(ad);
-            userAd.setUser(user);
-            userAds.add(userAd);
-        }
-        request.setAttribute("userAds", userAds);
+//        List<UserAd> userAds = new ArrayList<>();
+//        for (Ad ad : foundAds) {
+//            UserAd userAd = new UserAd();
+//            User user = DaoFactory.getUsersDao().findByUserId(ad.getUserId());
+//            userAd.setAd(ad);
+//            userAd.setUser(user);
+//            userAds.add(userAd);
+//        }
+        request.setAttribute("userAds", foundAds);
         request.getRequestDispatcher("/WEB-INF/search.jsp").forward(request,response);
     }
 }
