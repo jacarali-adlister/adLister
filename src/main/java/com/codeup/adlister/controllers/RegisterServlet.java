@@ -14,6 +14,8 @@ import java.io.IOException;
 @WebServlet(name = "controllers.RegisterServlet", urlPatterns = "/register")
 public class RegisterServlet extends HttpServlet {
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+
+
         request.getRequestDispatcher("/WEB-INF/register.jsp").forward(request, response);
     }
 
@@ -25,9 +27,12 @@ public class RegisterServlet extends HttpServlet {
 
         // validate input
         boolean inputHasErrors = username.isEmpty()
+            || username.contains("admin")
             || email.isEmpty()
             || password.isEmpty()
             || (! password.equals(passwordConfirmation));
+
+
 
         if (inputHasErrors) {
             response.sendRedirect("/register");
