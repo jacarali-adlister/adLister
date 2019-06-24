@@ -22,6 +22,14 @@
     .card{
         overflow-y: auto;
     }
+
+    button{
+        border: none;
+        border-radius: 50%;
+    }
+    button:focus{
+        outline: 0;
+    }
 </style>
 
 <div class="container">

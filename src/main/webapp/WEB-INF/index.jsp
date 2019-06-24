@@ -43,6 +43,10 @@
             background-color: gray;
         }
 
+        button:focus{
+            outline: 0;
+        }
+
         .container-fluid{
             padding: 3% 5% 5% 5%;
         }
