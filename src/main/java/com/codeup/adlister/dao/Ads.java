@@ -18,4 +18,7 @@ public interface Ads {
 
     List<Ad> containsAd(String searchQuery);
     List<Ad> adsCats(String title);
+
+    Ad thisAd(Long id);
+
 }

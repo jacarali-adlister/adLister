@@ -128,8 +128,6 @@ public class MySQLUsersDao implements Users {
             stmt.setString(3, user.getPassword());
             stmt.setLong(4, id);
 
-
-
             stmt.executeUpdate();
 
         } catch (SQLException e){

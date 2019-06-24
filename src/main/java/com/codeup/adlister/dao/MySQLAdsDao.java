@@ -245,4 +245,19 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+    @Override
+    public Ad thisAd(Long id) {
+        PreparedStatement stmt = null;
+        try {
+            stmt = connection.prepareStatement("SELECT * FROM ads WHERE id = ?");
+            stmt.setLong(1, id);
+            ResultSet rs = stmt.executeQuery();
+            List<Ad> ads = createAdsFromResults(rs);
+            return ads.get(0);
+        } catch (SQLException e) {
+            throw new RuntimeException("Error retrieving this ad.", e);
+        }
+
+    }
+
 }
