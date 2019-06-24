@@ -5,6 +5,12 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Your Profile" />
     </jsp:include>
+
+    <style>
+        h1{
+            text-align: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -15,7 +21,7 @@
     </div>
 
     <div class="container">
-        <h1>Here Are all the ads!</h1>
+        <h1>Here are all the ads!</h1>
 
         <c:forEach var="ad" items="${ads}">
             <div class="card mb-3" style="max-width: 540px;">

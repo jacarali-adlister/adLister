@@ -10,13 +10,17 @@
 <jsp:include page="/WEB-INF/partials/navbar.jsp" />
 <style>
     img{
-        height: 160px;
+        height: 180px;
         border:1px solid black;
         border-radius: 2px;
     }
 
     .ad-date{
         text-indent: 5%;
+    }
+
+    .card{
+        overflow-y: auto;
     }
 </style>
 
@@ -34,12 +38,13 @@
                     <h5 class="card-title">${ad.title}</h5>
                     <p class="card-text">${ad.description}</p>
                     <p class="card-text">
-                        <c:forEach var="category" items="${ad.categories}"><a href="#">
-                        <small class="text-muted">${category} </small></a>
+                        <c:forEach var="category" items="${ad.categories}">
+                    <form action="/ads" method="post"><input type="hidden" name="category" value="${category}">
+                    <button><small class="text-muted">${category}</small></button></form>
                         </c:forEach>
                     </p>
+                    <%--<p class="card-text ad-date"><small class="text-muted">Posted on: ${ad.create_date} By: <strong>${ad.username}</strong></small></p>--%>
                 </div>
-                <p class="card-text ad-date"><small class="text-muted">Posted on: ${ad.create_date}</small></p>
             </div>
         </div>
     </div>

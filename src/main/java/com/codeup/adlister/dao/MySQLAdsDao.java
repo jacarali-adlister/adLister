@@ -124,7 +124,8 @@ public class MySQLAdsDao implements Ads {
             rs.getString("description"),
             rs.getDate("create_date"),
             rs.getString("imageUrl"),
-            cat_ads(rs.getLong("id"))
+            cat_ads(rs.getLong("id")),
+            adUsername(rs.getLong("user_id"))
         );
     }
 
@@ -203,6 +204,23 @@ public class MySQLAdsDao implements Ads {
         }
          String[] arr = {"general"};
         return arr;
+    }
+
+    private String adUsername(Long userId){
+        PreparedStatement stmt = null;
+        try {
+            String adsUsername = "";
+            String query = "select username from users join ads on users.id = ads.user_id where ads.user_id = ?";
+            stmt = connection.prepareStatement(query);
+            stmt.setLong(1, userId);
+            ResultSet rs = stmt.executeQuery();
+            rs.next();
+            adsUsername = rs.getString("username");
+            return adsUsername;
+        } catch (SQLException e){
+            e.printStackTrace();
+        }
+        return "";
     }
 
     public List<Ad> adsCats(String title) {
