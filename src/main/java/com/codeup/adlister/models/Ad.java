@@ -13,6 +13,7 @@ public class Ad {
     private Date create_date;
     private String imageUrl;
     private String[] categories;
+    private String username;
 
     public Ad(long id, long userId, String title, String description, Date create_date, String imageUrl) {
         this.id = id;
@@ -31,6 +32,26 @@ public class Ad {
         this.create_date = create_date;
         this.imageUrl = imageUrl;
         this.categories = categories;
+    }
+
+    public Ad(long id, long userId, String title, String description, String imageUrl, String[] categories) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.imageUrl = imageUrl;
+        this.categories = categories;
+    }
+
+    public Ad(long id, long userId, String title, String description, Date create_date, String imageUrl, String[] categories, String username) {
+        this.id = id;
+        this.userId = userId;
+        this.title = title;
+        this.description = description;
+        this.create_date = create_date;
+        this.imageUrl = imageUrl;
+        this.categories = categories;
+        this.username = username;
     }
 
     public String[] getCategories() {
@@ -108,5 +129,13 @@ public class Ad {
 
     public void setDescription(String description) {
         this.description = description;
+    }
+
+    public String getUsername() {
+        return username;
+    }
+
+    public void setUsername(String username) {
+        this.username = username;
     }
 }

@@ -15,4 +15,8 @@ public class CategoriesServlet extends HttpServlet {
         request.setAttribute("categories", DaoFactory.getCategoriesDao().all());
         request.getRequestDispatcher("/WEB-INF/index.jsp").forward(request, response);
     }
+    protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        request.getSession().setAttribute("category", request.getParameter("category"));
+        response.sendRedirect("/adcat");
+    }
 }

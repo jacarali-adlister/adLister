@@ -33,9 +33,6 @@
     opacity: 0.7;
 }
 
-img:hover{
-    opacity:1;
-}
 
 
 .category img {
@@ -44,4 +41,5 @@ img:hover{
     border:5px solid black;
     border-radius: 2px;
 }
+
 
