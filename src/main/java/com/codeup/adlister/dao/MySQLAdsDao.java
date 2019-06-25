@@ -126,6 +126,7 @@ public class MySQLAdsDao implements Ads {
 
     }
 
+//    makes Ad objects from database rows
     private Ad extractAd(ResultSet rs) throws SQLException {
         return new Ad(
             rs.getLong("id"),
@@ -176,6 +177,7 @@ public class MySQLAdsDao implements Ads {
         }
     }
 
+//    builds a list of Ad objects
     private List<Ad> createAdsFromResults(ResultSet rs) throws SQLException {
         List<Ad> ads = new ArrayList<>();
         while (rs.next()) {
@@ -196,7 +198,7 @@ public class MySQLAdsDao implements Ads {
         }
 
     }
-
+//  get array of category ids for an ad
     private String[] cat_ads(Long ad_id){
         PreparedStatement stmt = null;
         try {
@@ -216,6 +218,7 @@ public class MySQLAdsDao implements Ads {
         return arr;
     }
 
+//    get the username for an ad
     private String adUsername(Long userId){
         PreparedStatement stmt = null;
         try {

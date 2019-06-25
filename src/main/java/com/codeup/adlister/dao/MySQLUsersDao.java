@@ -40,7 +40,7 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User findByUserId(long userId) {
-        String query = "SELECT * FROM users where is = ?";
+        String query = "SELECT * FROM users where id = ?";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setLong(1,userId);
@@ -133,6 +133,20 @@ public class MySQLUsersDao implements Users {
         } catch (SQLException e){
             throw new RuntimeException("Error creating new user", e);
         }
+    }
+
+    public void makeAdmin (User user){
+        String query = "update users set username = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, user.getUsername() + ".admin");
+            stmt.setLong(2, user.getId());
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
     }
 
 }
