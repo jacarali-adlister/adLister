@@ -41,7 +41,9 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-4">
-                            <img src="${ad.imageUrl}" class="card-img" alt="...">
+                            <form action="/thisAd?id=${ad.id}" method="GET">
+                                <button><img src="${ad.imageUrl}" class="card-img" alt="..."></button>
+                            </form>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

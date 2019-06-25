@@ -57,17 +57,17 @@
 <br>
     <h1 style="text-align: center">Categories</h1>
     <section>
-        <%--<div class="container">--%>
         <div class="container-fluid">
             <div class="row h-100">
                 <c:forEach var="category" items="${categories}">
                     <div class='col-2 category'>
                         <div class="row">
                             <div class="col-12">
-                                <form action="/categories" method="post">
-                                <input type="hidden" value="${category.title}" name="category">
-                                <button><img style="border-radius: 50%" class="card-img" src="${category.imgUrl}" alt="..."></button>
-                                </form>
+                                <img style="border-radius: 50%" class="card-img" src="${category.imgUrl}" alt="...">
+                                <%--<form action="/categories" method="post">--%>
+                                <%--<input type="hidden" value="${category.title}" name="category">--%>
+                                <%--<button><img style="border-radius: 50%" class="card-img" src="${category.imgUrl}" alt="..."></button>--%>
+                                <%--</form>--%>
                             </div>
                         </div>
                         <div class="row">
@@ -79,8 +79,6 @@
             </c:forEach>
             </div>
             </div>
-        <%--</div>--%>
     </section>
-</div>
 </body>
 </html>

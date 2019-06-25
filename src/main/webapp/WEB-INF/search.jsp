@@ -19,7 +19,6 @@
                             <h5 class="card-title"><a>${userAd.title}</a></h5>
                             <p class="card-text">${userAd.description}</p>
                             <a href="/thisAd?id=${userAd.id}" class="btn btn-primary">View Ad</a>
-                            <%--<p>posted by: ${userAd.username}</p>--%>
                         </div>
                     </div>
                 </div>
