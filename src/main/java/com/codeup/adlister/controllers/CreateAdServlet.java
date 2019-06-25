@@ -43,7 +43,7 @@ public class CreateAdServlet extends HttpServlet {
         String[] cat_id = request.getParameterValues("categories");
 
             List<String> cat_ids = catified(cat_id);
-            String[] temp = {"19"};
+
 
             String imgURL = request.getParameter("url");
 
@@ -51,6 +51,8 @@ public class CreateAdServlet extends HttpServlet {
                 response.sendRedirect("/ads");
                 DaoFactory.getAdsDao().insertCat_Ads(id, cat_ids);
     }
+
+//    sets categories to ad, or gives it the default of general
     private static List<String> catified(String[] arr){
         if (arr != null) {
             List<String> idsarr = Arrays.asList(arr);
