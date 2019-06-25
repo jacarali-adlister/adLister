@@ -135,4 +135,18 @@ public class MySQLUsersDao implements Users {
         }
     }
 
+    public void makeAdmin (User user){
+        String query = "update users set username = ? where id = ?";
+        try {
+            PreparedStatement stmt = connection.prepareStatement(query);
+            stmt.setString(1, user.getUsername() + ".admin");
+            stmt.setLong(2, user.getId());
+            stmt.executeUpdate();
+
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+
+    }
+
 }

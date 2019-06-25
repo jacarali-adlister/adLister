@@ -65,7 +65,6 @@
                 </div>
                 <h1>${ad.title}</h1>
                 <p>${ad.description}</p>
-                <%--<p><a href="mailto:${ad.email}?subject=${ad.title}" rel="noopener">${user.email}</a></p>--%>
                 <c:if test="${sessionScope.user.id == ad.userId}">
                     <div class="row">
                         <a href="/update-ad?update-id=${ad.id}" class="btn btn-primary m-2">Edit</a>

@@ -43,8 +43,12 @@
                         <div class="card-body">
                             <h5 class="card-title"><a>${userAd.title}</a></h5>
                             <p class="card-text">${userAd.description}</p>
+<<<<<<< HEAD
 
                             <%--<p>posted by: ${userAd.username}</p>--%>
+=======
+                            <a href="/thisAd?id=${userAd.id}" class="btn btn-primary">View Ad</a>
+>>>>>>> 0a418ddcce1adae7d51fba8a61fdaada7440439b
                         </div>
                     </div>
                 </div>

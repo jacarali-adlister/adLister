@@ -44,6 +44,8 @@
                         <div class="col-4">
                             <form action="/search" method="post">
                             <button><img src="${ad.imageUrl}" class="card-img" alt="..."></button>
+                            <form action="/thisAd?id=${ad.id}" method="GET">
+                                <button><img src="${ad.imageUrl}" class="card-img" alt="..."></button>
                             </form>
                         </div>
                         <div class="col-md-8">
@@ -54,8 +56,7 @@
                                 <form action="/ads" method="post" class="row">
                                     <c:forEach var="category" items="${ad.categories}">
                                         <div class="col-3">
-                                            <input type="hidden" name="category" value="${category}">
-                                            <button><small class="text-muted">${category}</small></button>
+                                            <button name="category" value="${category}"><small class="text-muted">${category}</small></button>
                                         </div>
                                     </c:forEach>
                                 </form>
