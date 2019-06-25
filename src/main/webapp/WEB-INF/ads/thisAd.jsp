@@ -18,7 +18,7 @@
                 <%--<p><a href="mailto:${ad.email}?subject=${ad.title}" rel="noopener">${user.email}</a></p>--%>
                 <c:if test="${sessionScope.user.id == ad.userId}">
                     <div class="row">
-                        <a href="/update-ad?id=${ad.id}" class="btn btn-primary m-2">Edit</a>
+                        <a href="/update-ad?update-id=${ad.id}" class="btn btn-primary m-2">Edit</a>
                     </div>
                 </c:if>
             </div>

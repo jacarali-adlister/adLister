@@ -21,8 +21,9 @@ public class UpdateAdServlet extends HttpServlet {
             response.sendRedirect("/login");
             return;
         }
-        if(request.getParameter("id") != null){
-        long cryD = Long.parseLong(request.getParameter("id"));
+        if(request.getParameter("update-id") != null){
+        long cryD = Long.parseLong(request.getParameter("update-id"));
+        request.getSession().setAttribute("update-id", cryD);
             request.setAttribute("ads", DaoFactory.getAdsDao().one(cryD));
         } else {
         long id = (long)request.getSession().getAttribute("update-id");
