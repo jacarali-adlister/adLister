@@ -21,8 +21,7 @@
     </div>
 
     <div class="container">
-        <h1>Here are all your ads!</h1>
-
+        <h1>Here are all of your ads!</h1>
         <c:forEach var="ad" items="${ads}">
             <div class="card mb-3" style="max-width: 540px;">
                 <div class="row no-gutters">
@@ -33,7 +32,8 @@
                         <div class="card-body">
                             <h5 class="card-title">${ad.title}</h5>
                             <p class="card-text">${ad.description}</p>
-                            <p class="card-text"> <c:forEach var="category" items="${ad.categories}"><a href="#">
+                            <p class="card-text">
+                                <c:forEach var="category" items="${ad.categories}"><a href="#">
                                 <small class="text-muted">${category} </small></a>
                             </c:forEach></p>
                             <form action="/profile" method="post">

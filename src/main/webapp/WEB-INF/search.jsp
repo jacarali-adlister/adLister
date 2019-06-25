@@ -5,6 +5,31 @@
     <jsp:include page="/WEB-INF/partials/head.jsp">
         <jsp:param name="title" value="Viewing All The Ads" />
     </jsp:include>
+
+    <style>
+        img{
+            height: 200px;
+            width: 200px;
+            border:1px solid black;
+            border-radius: 2px;
+        }
+
+        .ad-date{
+            text-indent: 5%;
+        }
+
+        .card{
+            overflow-y: auto;
+        }
+
+        button{
+            border: none;
+            border-radius: 50%;
+        }
+        button:focus{
+            outline: 0;
+        }
+    </style>
 </head>
 <body>
     <jsp:include page="/WEB-INF/partials/navbar.jsp" />
@@ -14,11 +39,13 @@
             <c:forEach var="userAd" items="${userAds}">
                 <div class="col-12 col-md-3 my-2">
                     <div class="card" style="width: 18rem;">
-                        <img src="${userAd.imageUrl}" class="card-img-top" alt="..." style="height: 12rem">
+                        <a href="/thisAd?id=${userAd.id}" class="btn"><img src="${userAd.imageUrl}" class="card-img-top" alt="..."></a>
                         <div class="card-body">
                             <h5 class="card-title"><a>${userAd.title}</a></h5>
                             <p class="card-text">${userAd.description}</p>
-                            <a href="/thisAd?id=${userAd.id}" class="btn btn-primary">View Ad</a>
+
+                            <%--<p>posted by: ${userAd.username}</p>--%>
+                            <%--<a href="/thisAd?id=${userAd.id}" class="btn btn-primary">View Ad</a>--%>
                         </div>
                     </div>
                 </div>
