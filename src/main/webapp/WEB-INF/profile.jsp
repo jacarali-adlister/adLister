@@ -21,7 +21,7 @@
     </div>
 
     <div class="container">
-        <h1>Here are all the ads!</h1>
+        <h1>Here are all your ads!</h1>
 
         <c:forEach var="ad" items="${ads}">
             <div class="card mb-3" style="max-width: 540px;">
