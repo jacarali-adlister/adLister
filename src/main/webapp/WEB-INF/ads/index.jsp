@@ -47,6 +47,7 @@
                             <form action="/thisAd?id=${ad.id}" method="GET">
                                 <button><img src="${ad.imageUrl}" class="card-img" alt="..."></button>
                             </form>
+                            </form>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
