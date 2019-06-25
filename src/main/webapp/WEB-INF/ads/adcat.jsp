@@ -24,9 +24,7 @@
         .card{
             overflow-y: auto;
         }
-        .card-body{
-            padding: 0;
-        }
+
 
         button{
             border: none;
