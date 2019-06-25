@@ -44,9 +44,6 @@
                         <div class="col-4">
                             <form action="/search" method="post">
                             <button><img src="${ad.imageUrl}" class="card-img" alt="..."></button>
-                            <form action="/thisAd?id=${ad.id}" method="GET">
-                                <button><img src="${ad.imageUrl}" class="card-img" alt="..."></button>
-                            </form>
                             </form>
                         </div>
                         <div class="col-md-8">

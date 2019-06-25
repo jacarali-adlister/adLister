@@ -60,8 +60,7 @@
                                 <form action="/ads" method="post" class="row">
                                     <c:forEach var="category" items="${ad.categories}">
                                         <div class="col-3">
-                                            <input type="hidden" name="category" value="${category}">
-                                            <button><small class="text-muted">${category}</small></button>
+                                            <button name="category" value="${category}"><small class="text-muted">${category}</small></button>
                                         </div>
                                     </c:forEach>
                                 </form>
