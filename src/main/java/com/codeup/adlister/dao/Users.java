@@ -11,5 +11,6 @@ public interface Users {
     void updateprofile(User user, Long id);
     List<User> allUsers();
     void deleteUser(Long id);
+    void makeAdmin (User user);
 
 }

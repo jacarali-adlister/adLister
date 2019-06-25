@@ -19,15 +19,12 @@ public class ViewProfileServlet extends HttpServlet {
         if (request.getSession().getAttribute("user") == null) {
             response.sendRedirect("/login");
             return;
-        } else if (user.getUsername().contains("admin")){
-            response.sendRedirect("/admin");
-            return;
         }
 
 
+
         if (user.getUsername().contains("admin")) {
-            request.setAttribute("ads", DaoFactory.getAdsDao().all());
-            request.getRequestDispatcher("/WEB-INF/profile.jsp").forward(request, response);
+            response.sendRedirect("/admin");
         } else {
 
             request.setAttribute("ads", DaoFactory.getAdsDao().allFromUser(user.getId()));
