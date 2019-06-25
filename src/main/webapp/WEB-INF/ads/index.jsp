@@ -42,9 +42,9 @@
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-4">
-                            <form action="/search" method="post">
-                            <button><img src="${ad.imageUrl}" class="card-img" alt="..."></button>
-                            </form>
+
+                                <a href="/thisAd?id=${ad.id}" class="btn"><img src="${ad.imageUrl}" class="card-img" alt="..."></a>
+
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">
