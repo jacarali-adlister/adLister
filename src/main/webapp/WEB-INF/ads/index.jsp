@@ -23,6 +23,9 @@
     .card{
         overflow-y: auto;
     }
+    .card-body{
+        padding: 0;
+    }
 
     button{
         border: none;
@@ -35,13 +38,15 @@
 
     <h1 style="text-align: center">Here are all the ads!</h1>
     <div class="container-fluid">
-        <div class="row h-100">
+        <div class="row h-90">
         <c:forEach var="ad" items="${ads}">
             <div class="col-4">
                 <div class="card mb-3" style="max-width: 540px;">
                     <div class="row no-gutters">
                         <div class="col-4">
-                            <img src="${ad.imageUrl}" class="card-img" alt="...">
+                            <form action="/search" method="post">
+                            <button><img src="${ad.imageUrl}" class="card-img" alt="..."></button>
+                            </form>
                         </div>
                         <div class="col-md-8">
                             <div class="card-body">

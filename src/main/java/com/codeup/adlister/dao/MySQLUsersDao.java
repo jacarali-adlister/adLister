@@ -40,7 +40,7 @@ public class MySQLUsersDao implements Users {
 
     @Override
     public User findByUserId(long userId) {
-        String query = "SELECT * FROM users where is = ?";
+        String query = "SELECT * FROM users where id = ?";
         try{
             PreparedStatement statement = connection.prepareStatement(query);
             statement.setLong(1,userId);
