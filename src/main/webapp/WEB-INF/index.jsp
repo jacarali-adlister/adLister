@@ -63,11 +63,10 @@
                     <div class='col-2 category'>
                         <div class="row">
                             <div class="col-12">
-                                <img style="border-radius: 50%" class="card-img" src="${category.imgUrl}" alt="...">
-                                <%--<form action="/categories" method="post">--%>
-                                <%--<input type="hidden" value="${category.title}" name="category">--%>
-                                <%--<button><img style="border-radius: 50%" class="card-img" src="${category.imgUrl}" alt="..."></button>--%>
-                                <%--</form>--%>
+                                <form action="/categories" method="post">
+                                <input type="hidden" value="${category.title}" name="category">
+                                <button><img style="border-radius: 50%" class="card-img" src="${category.imgUrl}" alt="..."></button>
+                                </form>
                             </div>
                         </div>
                         <div class="row">
