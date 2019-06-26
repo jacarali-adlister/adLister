@@ -54,14 +54,14 @@
                 <img src="${ad.imageUrl}" alt="">
                     <h1>${ad.title}</h1>
                     <p>${ad.description}</p>
-                    <p class="card-text ad-date"><small class="text-muted">Posted on: ${ad.create_date} </small></p>
-                    <p class="card-text ad-date"><small class="text-muted">By: <strong>${ad.username}</strong></small></p>
+                    <p class="card-text ad-date"><small>Posted on: ${ad.create_date} </small></p>
+                    <p class="card-text ad-date"><small>By: <strong>${ad.username}</strong></small></p>
                     <p>Contact: <a href="mailto:${user.email}?subject=${ad.title}" rel="noopener">${user.email}</a></p>
-                    <c:if test="${sessionScope.user.id == ad.userId}">
-                        <div class="row">
-                            <a href="/update-ad?id=${ad.id}" class="btn btn-primary m-2">Edit</a>
-                        </div>
-                    </c:if>
+                    <%--<c:if test="${sessionScope.user.id == ad.userId}">--%>
+                        <%--<div class="row">--%>
+                            <%--<a href="/update-ad?id=${ad.id}" class="btn btn-primary m-2">Edit</a>--%>
+                        <%--</div>--%>
+                    <%--</c:if>--%>
                 </div>
             </div>
             <div class="col"></div>
